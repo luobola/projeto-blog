@@ -1,5 +1,5 @@
 .container__big-card{
-  border: solid white 2px;
+  /* border: solid white 2px;  todo: borda da caixa para visualizar a posição dos elementos. */
   width: 400px;
   height: 500px;
   margin-left: 10px;
@@ -14,8 +14,14 @@
   margin-top: 15px;
   font-size: 20px;
 }
-.big-card__description > p{
-  margin-top: 10px;
+.big-card__description{
+  margin-top: 20px;
+}
+.big-card__description > p > a{
   color: gray;
   font-size: 15px;
+}
+.big-card__img > img{
+  width: 100%;
+  min-width: 400px;
 }

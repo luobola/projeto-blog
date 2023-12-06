@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
+import { dataFake } from '../../data/dataTmp';
 
 @Component({
   selector: 'app-content',
@@ -10,9 +11,10 @@ import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
 })
 export class ContentComponent implements OnInit{
 
-  photoCover:string = "https://goat.com.au/wp-content/uploads/2019/10/tony-stark-snap-avengers-endgame.jpg";
-  contentTitle:string = "MINHA NOTICIA";
-  content_descripion:string = "Ola Mundo loko!";
+  photoCover:string = "";
+  contentTitle:string = "";
+  content_descripion:string = "";
+  private id:string | null = "0";
 
 
 
@@ -21,9 +23,15 @@ export class ContentComponent implements OnInit{
   }
 
   ngOnInit(): void {
-      this.route.paramMap.subscribe( value =>
-        console.log(value.get("id"))
-      )
+      this.route.paramMap.subscribe( value =>this.id = value.get("id") )
+      this.setValueToComponent(this.id)
   }
+  setValueToComponent(id:string | null){
+    const result = dataFake.filter(articles => articles.id == id)[0]
 
+    this.contentTitle = result.title
+    this.content_descripion = result.desciption
+    this.photoCover = result.photoCover
+
+  }
 }

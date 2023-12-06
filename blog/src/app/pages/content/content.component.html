@@ -1,13 +1,22 @@
 <div class="container__content">
   <div class="content__cover">
-    <img src="https://goat.com.au/wp-content/uploads/2019/10/tony-stark-snap-avengers-endgame.jpg" alt="">
+    <img src="{{photoCover}}" alt="">
+
   </div>
   <div class="content__title">
-    <h1>MINHA NOTICIA</h1>
+    <h1>{{contentTitle}}</h1>
+    <hr/>
   </div>
   <div class="content__description">
+    <a [routerLink]="['']"><< Voltar</a>
     <p>
-      Ola Mundo loko!
+      {{content_descripion}}
     </p>
   </div>
 </div>
+<!--
+  Evidentemente por conta da versão do
+  angular na minha IDE que esta diferente do apresentado em aula, foi necessario importar o
+  ! RouterLink e o RouterOutlet
+  dentro do  .ts que esta sendo chamado. nesse caso para criar a rota corretamente, foi necessario aplicar no content
+-->
